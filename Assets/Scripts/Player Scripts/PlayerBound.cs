@@ -22,8 +22,8 @@ public class PlayerBound : MonoBehaviour{
         if(temp.y <= minX){
             if(!outOfBounds){
                 outOfBounds = true;
-                // SoundManager.instance.DeathSound();
-                // GameManager.instance.RestartGame();
+                SoundManager.instance.DeathSound();
+                GameManager.instance.RestartGame();
             }
         }
     }
@@ -31,8 +31,8 @@ public class PlayerBound : MonoBehaviour{
     void OnTriggerEnter2D(Collider2D target){
         if(target.tag == "TopSpike"){
             transform.position = new Vector2(1000f, 1000f);
-            // SoundManager.instance.DeathSound();
-            // GameManager.instance.RestartGame();
+            SoundManager.instance.DeathSound();
+            GameManager.instance.RestartGame();
         }
     }
 }

@@ -34,7 +34,7 @@ public class PlatformScript : MonoBehaviour{
     }
 
     void DeactivateGameObject(){
-        // SoundManager.instance.IceBreakSound();
+        SoundManager.instance.IceBreakSound();
         gameObject.SetActive(false);    
     }
 
@@ -42,8 +42,8 @@ public class PlatformScript : MonoBehaviour{
         if(target.tag == "Player"){
             if(is_Spike){
                 target.transform.position = new Vector2(1000f, 1000f);
-                // SoundManager.instance.DeathSound();
-                // GameManager.instance.RestartGame();
+                SoundManager.instance.DeathSound();
+                GameManager.instance.RestartGame();
             }
         }
     }
@@ -51,10 +51,11 @@ public class PlatformScript : MonoBehaviour{
     void OnCollisionEnter2D(Collision2D target){
         if(target.gameObject.tag == "Player"){
             if(is_Breakable){
+                SoundManager.instance.LandSound();
                 anim.Play("Break");
             }
             if(is_Platform){
-                // SoundManager.instance.LandSound();
+                SoundManager.instance.LandSound();
             }
         }
     }
